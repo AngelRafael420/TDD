@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Máquina dispensadora de café</title>
+    <link rel="stylesheet" href="./styles.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            width: 80%;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        label {
+            margin-top: 10px;
+        }
+
+        select {
+            margin-left: 10px;
+        }
+
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #0099ff;
+            color: #fff;
+            font-weight: bold;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0077cc;
+        }
+
+        #message {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Máquina dispensadora de café</h1>
+        <form>
+            <label for="size">Tamaño del vaso:</label>
+            <select id="size" name="size">
+                <option value="pequeño">Pequeño</option>
+                <option value="mediano">Mediano</option>
+                <option value="grande">Grande</option>
+            </select>
+            <label for="sugar">Cantidad de azúcar:</label>
+            <select id="sugar" name="sugar">
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+            </select>
+            <button type="button" onclick="hacerCafe()">Hacer café</button>
+        </form>
+        <div id="message"></div>
+    </div>
+
+    <script src="./scripts/coffeeMachine.js"></script>
+    <script>
+        function hacerCafe() {
+            // Preguntar al usuario por el tamaño del vaso
+            let vaso = window.prompt("Selecciona el tamaño de vaso:\n\nPequeño\nMediano\nGrande");
+
+            // Preguntar al usuario por la cantidad de azúcar
+            let azucar = window.prompt("Selecciona la cantidad de azúcar:\n\n0\n1\n2\n3");
+
+            // Mostrar el mensaje de confirmación
+            document.getElementById("message").innerHTML = `Has seleccionado un vaso ${vaso} de café con ${azucar} cucharada(s) de azúcar.<br><br>Vaso recogido.`;
+
+        }
+    </script>
+</body>
+</html>
